@@ -45,7 +45,7 @@ do
 		echo "Archivo o directorio a buscar: "
 		read archivo
 
-		if ls $ruta | egrep $archivo
+		if ls $ruta | egrep -ow $archivo
 		then
 			echo "Archivo encontrado: `ls $ruta | egrep $archivo`"
 		else
@@ -71,6 +71,7 @@ do
 		echo -e "\tsalir\tPermite cerrar la PREBESHELL.\n"
 		echo -e "\tpokemon\tJuego de pokemon (QUIZ).\n"
 		echo -e "\tprebeplayer\tReproductor MP3.\n"
+		echo -e "\tahorcado\tJuego de ahorcado.\n"
 	;;
 	'infosis')
 		echo -e "\e[1;32m---------------Informacion sobre tu PC------------------\e[1;37m\n"
@@ -90,6 +91,9 @@ do
 	;;
 	'pokemon')
 		bash ./Juego1Poke.sh
+	;;
+	'ahorcado')
+	bash ./ahorcado.sh
 	;;
 	'prebeplayer')
 	bash ./prebeplayer.sh
