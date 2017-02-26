@@ -20,6 +20,17 @@ arreglo[17]="pidgeotto"
 arreglo[18]="pidgeot"
 arreglo[19]="rattata"
 arreglo[20]="raticane"
+arreglo[21]="spearow"
+arreglo[22]="fearow"
+arreglo[23]="ekans"
+arreglo[24]="arbok"
+arreglo[25]="pikachu"
+arreglo[26]="raichu"
+arreglo[27]="sandshrew"
+arreglo[28]="sandslash"
+arreglo[29]="eevee"
+arreglo[30]="magikarp"
+
 
 let contador=0
 let marcador=0
@@ -31,7 +42,7 @@ echo "si te sale el comodin escribe el nombre del primer entrenador de gbc"
 read -rsp $'Press any key to continue...\n' -n1 key
         while [ $contador -ne 10 ]; do
                 clear
-                pokemon=`echo $(($RANDOM % 20))`
+                pokemon=`echo $(($RANDOM % 30))`
                 let nombrepokemon=$pokemon
                 cat ./Prebeshell/$nombrepokemon.txt
                 echo "escribe el nombre del pokemon :3 "
