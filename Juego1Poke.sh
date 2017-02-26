@@ -1,5 +1,3 @@
-  GNU nano 2.5.3                                                                                        Archivo: ./scriptprueba.sh                                                                                                                                                                                        
-
 #!/bin/bash
 arreglo[0]="red"
 arreglo[1]="bulbasaur"
