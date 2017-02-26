@@ -73,11 +73,20 @@ do
 		echo -e "\tprebeplayer\tReproductor MP3.\n"
 	;;
 	'infosis')
-		echo -e "---------------Informacion sobre tu PC------------------\n"
-		echo -e "\n---------------Modelo de tu computadora------------------\n"
+		echo -e "\e[1;32m---------------Informacion sobre tu PC------------------\e[1;37m\n"
+		echo -e "\n\e[1;32m---------------Modelo de tu computadora------------------\e[1;37m\n"
 		echo "`cat /proc/cpuinfo | egrep "name"`"
-		echo -e "\n------------Version de tu Sistema Operativo--------------\n"
+		echo -e "\n\e[1;32m------------Version de tu Sistema Operativo--------------\e[1;37m\n"
 		echo `cat /proc/version` 
+		echo -e "\n\e[1;32m----------------------Memoria---------------------------\e[1;37m\n"
+		echo `cat /proc/meminfo | egrep "MemTotal"`
+		echo `cat /proc/meminfo | egrep "MemFree"`
+		echo `cat /proc/meminfo | egrep "MemAvailable"`
+		echo -e "\n\e[1;32m---------------Sistema operativo------------------------\e[1;37m\n"
+		echo `cat /proc/sys/kernel/ostype`
+		echo -e "\n\e[1;32m--------------Memoria Cache------------------------\e[1;37m\n"
+		echo `cat /proc/cpuinfo | egrep "cache"`
+
 	;;
 	'pokemon')
 		bash ./Juego1Poke.sh
