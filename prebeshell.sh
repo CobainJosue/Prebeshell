@@ -6,11 +6,10 @@ do
 	echo "Usuario: "
 	read user
 	echo "Password: "
-	#read password
-#if cat /etc/passwd | egrep -q $user && true
-if su - $user
+	read password
+if cat /etc/passwd | egrep -q $user && true
+#if su - $user
 	then
-	exit
 while true
 do
 
@@ -56,8 +55,8 @@ do
 	'creditos')
 		echo -e "-----------------Desarrolladores------------------------\n"
 		echo -e "\tQuiñones Rivera Josue Emanuel\tPrebecario 3\n"
-		echo -e "\tPedro Noe\tPrebecario \n"
-		echo -e "\tRicardo Omar\tPrebecario \n"
+		echo -e "\tHernandez Gutierrez Pedro Noe\tPrebecario 26\n"
+		echo -e "\tHernandez Gonzalez Ricardo Omar\tPrebecario 8\n"
 	;;
 	'ayuda')
 		echo -e "---------------Comandos disponibles---------------------\n"
@@ -81,6 +80,9 @@ do
 	;;
 	'pokemon')
 		bash ./Juego1Poke.sh
+	;;
+	'prebeplayer')
+	bash ./prebeplayer.sh
 	;;
 	*)
 		echo "No se reconoce el comando $comando"
