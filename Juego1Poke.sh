@@ -24,7 +24,7 @@ arreglo[20]="raticane"
 let contador=0
 let marcador=0
 
-cat ./Prebeshell/0.txt
+cat ./0.txt
 echo "vamos a ver que tanto sabes de pokemon"
 echo "si te sale el comodin escribe el nombre del primer entrenador de gbc"
 #detiene el avance hasta que se precione alguna tecla
@@ -33,7 +33,7 @@ read -rsp $'Press any key to continue...\n' -n1 key
                 clear
                 pokemon=`echo $(($RANDOM % 20))`
                 let nombrepokemon=$pokemon
-                cat ./Prebeshell/$nombrepokemon.txt
+                cat ./$nombrepokemon.txt
                 echo "escribe el nombre del pokemon :3 "
                 read cadena
                 if [ $cadena == ${arreglo[$pokemon]} ];
@@ -46,4 +46,3 @@ read -rsp $'Press any key to continue...\n' -n1 key
                 let contador=$contador+1
         done
 echo "tu marcador final es $marcador"
-#fin
