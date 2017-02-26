@@ -35,16 +35,20 @@ do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 
 	if [ $i -eq $numero ];
 	then
-		palabra=$find; #aqui asigna la palabra del archivo a la variable PALABRA
+		palabra=$find; #aqui asigna la palabra del archivo a la variable palabra
 	fi
 	let i=$i+1;
 done
 
+<<<<<<< HEAD
 for find in archivo_pistas 
 do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
+=======
+for find in archivo_pistas do  #ciclo para encontrar la pista que corresponde al numero aleatorio
+>>>>>>> c767a612c42b9ea4c0d306787e171d749261c1d2
 
 	if [ $i -eq $numero ]; then
-		pista=$find; #aqui asigna la palabra del archivo a la variable PALABRA
+		pista=$find; #aqui asigna la palabra del archivo a la variable pista
 	fi
 	let i=$i+1;
 done
@@ -88,6 +92,7 @@ while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 	for ((x=1; x<=$longitud; x++)); do
 		if [ "$c" == "${array_pal[$x]}" ]; then
 			resp[$x]=1;
+			
 			let lets_restantes=$lets_restantes-1;
 			let n_acierto=$n_acierto+1;
 		fi
@@ -95,7 +100,7 @@ while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 
 	clear;
 	if [ $n_acierto -eq 0 ]; then
-		echo "Lo siento, la letra no es correcta"; 
+		echo "Lo siento, la letra no está dentro de la palabra"; 
 		let vidas=$vidas-1;
 	else
 		echo "Acertaste";
@@ -106,9 +111,15 @@ done
 clear;
 
 if [ $lets_restantes -eq 0 ]; then
+<<<<<<< HEAD
 	echo -e "\t\t\t`/ft.sh -f -r `\t\tCorrecto, es:"$palabra"
 	\t\t\tLa victoria es toda tuya";
 	cat ./figura0.txt;
+=======
+	echo "\t\t\t"$("\t\tExcelente, la palabra es:"$palabra";
+	\t\t\tHas ganado.";
+	cat figura0.txt;
+>>>>>>> c767a612c42b9ea4c0d306787e171d749261c1d2
 else
 	echo -e "Suerte para la próxima, la palabra era \t\t\t\t$palabra";
 	cat ./figura7.txt;
