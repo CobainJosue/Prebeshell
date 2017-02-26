@@ -20,29 +20,48 @@ arreglo[17]="pidgeotto"
 arreglo[18]="pidgeot"
 arreglo[19]="rattata"
 arreglo[20]="raticane"
+arreglo[21]="spearow"
+arreglo[22]="fearow"
+arreglo[23]="ekans"
+arreglo[24]="arbok"
+arreglo[25]="pikachu"
+arreglo[26]="raichu"
+arreglo[27]="sandshrew"
+arreglo[28]="sandslash"
+arreglo[29]="eevee"
+arreglo[30]="magikarp"
 
 let contador=0
 let marcador=0
 
+RED='\033[0;31m'
+NC='\033[0m'
+
+BLUE='\033[0;34m'
+
+YELLOW='\033[1;33m'
+
 cat ./0.txt
-echo "vamos a ver que tanto sabes de pokemon"
-echo "si te sale el comodin escribe el nombre del primer entrenador de gbc"
-#detiene el avance hasta que se precione alguna tecla
-read -rsp $'Press any key to continue...\n' -n1 key
+echo -e "${YELLOW}vamos a ver que tanto sabes de pokemon${NC}"
+echo -e "${RED}si te sale el comodin (logo de pokemon) escribe el nombre del primer entrenador de gbc${NC}"
+read -rsp $'Pulsa cualquier tecla para continuar...\n' -n1 key
         while [ $contador -ne 10 ]; do
                 clear
-                pokemon=`echo $(($RANDOM % 20))`
+                pokemon=`echo $(($RANDOM % 30))`
                 let nombrepokemon=$pokemon
                 cat ./$nombrepokemon.txt
-                echo "escribe el nombre del pokemon :3 "
+                echo -e "${YELLOW}escribe el nombre del pokemon que aparece arriba (solo minusculas):3${NC} "
                 read cadena
                 if [ $cadena == ${arreglo[$pokemon]} ];
                 then
                         clear
-                        echo "muy bien"
-                        read -rsp $'Press any key to continue...\n' -n1 key
+                        echo -e "${BLUE}muy bien$"
+                        read -rsp $'Presiona cualquier tecla para continuar\n' -n1 key
                         let marcador=$marcador+1
+                else
+                        echo -e "${RED}error, no se llama asi chaval"
+                        read -rsp $'Presiona cualquier tecla para continuar\n' -n1 key
                 fi
                 let contador=$contador+1
         done
-echo "tu marcador final es $marcador"
+echo -e "${YELLOW}tu marcador final es $marcador${NC}"
