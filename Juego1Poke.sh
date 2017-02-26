@@ -33,7 +33,7 @@ read -rsp $'Press any key to continue...\n' -n1 key
                 clear
                 pokemon=`echo $(($RANDOM % 20))`
                 let nombrepokemon=$pokemon
-                cat ./Prebeshell/$nombrepokemon.txt
+                cat $nombrepokemon.txt
                 echo "escribe el nombre del pokemon :3 "
                 read cadena
                 if [ $cadena == ${arreglo[$pokemon]} ];

@@ -1,7 +1,16 @@
 #!/bin/bash
 
 clear
-
+while true
+do
+	echo "Usuario: "
+	read user
+	echo "Password: "
+	#read password
+#if cat /etc/passwd | egrep -q $user && true
+if su - $user
+	then
+	exit
 while true
 do
 
@@ -20,7 +29,10 @@ do
 		echo 'hola mundo'
 	;;
 	'arbol')
-		ls -rd
+		echo 'Dame la ruta: '
+		read rutaA
+		#ls -R $ruta | egrep ":" | sed -e 's/://' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'
+		ls -1FR $rutaA
 	;;
 	'fecha')
 		echo "Hoy es: `cat /proc/driver/rtc | egrep "rtc_date" | egrep -o  "\w+-\w+-\w+"`"
@@ -68,12 +80,18 @@ do
 		echo `cat /proc/version` 
 	;;
 	'pokemon')
+		bash ./Juego1Poke.sh
 	;;
 	*)
 		echo "No se reconoce el comando $comando"
 	;;
 	esac
 
+done
+break
+else
+	echo -e "Usuario no existente\n"
+fi
 done
 
 exit
