@@ -70,6 +70,7 @@ do
 		echo -e "\thola\tHola mundo ¿por que no?\n"
 		echo -e "\tsalir\tPermite cerrar la PREBESHELL.\n"
 		echo -e "\tpokemon\tJuego de pokemon (QUIZ).\n"
+		echo -e "\tprebeplayer\tReproductor MP3.\n"
 	;;
 	'infosis')
 		echo -e "---------------Informacion sobre tu PC------------------\n"
