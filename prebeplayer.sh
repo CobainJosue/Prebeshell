@@ -2,9 +2,19 @@
 
 # Script que ejecuta la prebeplayer
 
-./ft.sh -s "\t\t ¡¡ Bienvenido a la prebeplayer !!\n\n";
+RED='\033[0;31m'
+NC='\033[0m'
 
-./ft.sh " Seleccione la opción deseada: ";
+BLUE='\033[0;34m'
+NB='\033[0m'
+
+YELLOW='\033[1;33m'
+NY='\033[0m'
+
+echo -e " ${RED}¡¡ Bienvenido a la prebeplayer !!${NC} "
+
+echo -e "${BLUE}Seleccione la opción deseada:${NB}"
+
 op1="Reproduce la carpeta actual";
 op2="Subir una carpeta";
 op3="Cambiar de carpeta";
@@ -16,33 +26,32 @@ salida=1
 
 while [ $salida -eq 1 ]; do
 msj_ubica=$(echo "Te encuentras en la carpeta: ");
-echo "$msj_ubica" $(pwd)	
+echo -e "${YELLOW}$msj_ubica${MY}" $(pwd)	
 	select OPCIONES in  "$op1" "$op2" "$op3" "$op4" "$op5" "$op6" 
 	do
 		case $OPCIONES in	
 			"$op1")
 				
 				accion=$(pwd)"/*"" &";
-#				accion=$(pwd);
 				mpg123 $accion;
 				break
 				;;
 			"$op2")
 				cd ..
-				echo "Ahora estás en:" "$(pwd)"
+				echo -e"${RED}Ahora estás en:${MC}" "$(pwd)"
 				break
 				read;
 				;;
 			"$op3")
-				echo "Escriba la ruta a la que desea ingresar"
+				echo -e "${BLUE}Escriba la ruta a la que desea ingresar${MB}"
 				read route;
 				cd $route;			
-				echo "Has cambiado a: $(pwd)"
+				echo -e "${BLUE}Has cambiado a: $(pwd)${MB}"
 				read;
 				break
 				;;
 			"$op4")
-				echo "Los archivos y carpetas son: "
+				echo "${BLUE}Los archivos y carpetas son:${MB}"
 				ls --color;
 				echo "Puedes ingresar el NOMBRE de una cancion para reproducirla"
 				read espera #Ingresa titulo de la cancion con o sin espacios
