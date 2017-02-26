@@ -4,12 +4,12 @@
 # Figuras del ahorcado obtenidas de la página:
 # https://programaresdivertido.wordpress.com/2014/08/29/programando-un-ahorcado-en-consola-con-java-nivel-medio/
 
-echo "\t\t\t\tJUEGO DEL AHORCADO.";
+echo -e "\t\t\t\tJUEGO DEL AHORCADO.";
 
 # Instrucciones del juego
 
-		echo "\t\t\tInstrucciones:"
-		echo"\tBienvenido al juego.\n
+		echo -e "\t\t\tInstrucciones:"
+		echo -e "\tBienvenido al juego.\n
 		\tEl juego consiste en adivinar letra por letra una\n
 		\tpalabra, la cual no contendrá ni \n
 		\tni acentos ni caracteres especiales (a excepcion de\n
@@ -24,22 +24,24 @@ echo "\t\t\t\tJUEGO DEL AHORCADO.";
 		\tcontrario perderás una vida.\n\n";
 
 # Se generará un número aleatorio y se guarda en numero
-numero=$(($RANDOM%150));
+numero=(($RANDOM%150));
 i=1; #inicia contador para recorrer el archivo
 
-archivo_pal=cat opciones.txt;
-archivo_pistas=cat pistas.txt;
+archivo_pal= cat ./opciones.txt;
+archivo_pistas= cat ./pistas.txt;
 
-for find in archivo_pal do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
+for find in archivo_pal 
+do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 
-	if [ $i -eq $numero ]; 
+	if [ $i -eq $numero ];
 	then
 		palabra=$find; #aqui asigna la palabra del archivo a la variable PALABRA
 	fi
 	let i=$i+1;
 done
 
-for find in archivo_pistas do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
+for find in archivo_pistas 
+do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 
 	if [ $i -eq $numero ]; then
 		pista=$find; #aqui asigna la palabra del archivo a la variable PALABRA
@@ -62,8 +64,8 @@ lets_restantes=$longitud;
 
 while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 	
-	echo "\t\tAdivine la siguiente palabra\n";
-	echo "Pista: $pista"; 
+	echo -e "\t\tAdivine la siguiente palabra\n";
+	echo -e "Pista: $pista"; 
 	
 	let indice=8-$vidas;
 	
@@ -104,10 +106,11 @@ done
 clear;
 
 if [ $lets_restantes -eq 0 ]; then
-	echo -e "\t\t\t"$(./ft.sh -f -r "\t\tCorrecto, es:"$palabra";
+	echo -e "\t\t\t`/ft.sh -f -r `\t\tCorrecto, es:"$palabra"
 	\t\t\tLa victoria es toda tuya";
-	cat figura0.txt;
+	cat ./figura0.txt;
 else
-	echo "Suerte para la próxima, la palabra era \t\t\t\t$palabra";
-	cat figura7.txt;
+	echo -e "Suerte para la próxima, la palabra era \t\t\t\t$palabra";
+	cat ./figura7.txt;
 fi
+exit
