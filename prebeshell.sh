@@ -27,6 +27,10 @@ do
 
 	read comando
 
+	#type $comando && whereis $comando
+	#$comando is a shell builtin
+	#$comando
+
 	case $comando in
 	'salir')
 		trap 2
@@ -111,9 +115,12 @@ do
 	bash ./prebeplayer.sh
 	;;
 	*)
-		echo "No se reconoce el comando $comando"
+		$comando
+		#echo "No se reconoce el comando $comando"
 	;;
 	esac
+
+	#fi
 
 done
 break
