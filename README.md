@@ -9,5 +9,9 @@ acceder a archivos del sistema como lo es /etc/shadow para realizar la comparaci
 Creditos:
 
 Hernández Gonzáles Ricardo Omar     Prebecario 8
+
 Hernández Gutiérrez Pedro Noé       Prebecario 26
+
 Quiñones Rivera Josué Emanuel       Prebecario 3
+
+El archivo principal, es decir, el que debe ser ejecutado es 'prebeshell.sh'
