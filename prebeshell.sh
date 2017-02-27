@@ -47,6 +47,9 @@ do
 	'hora')
 		echo "Son las: `cat /proc/driver/rtc | egrep "rtc_time" | egrep -o  "\w+:\w+:\w+"`"
 	;;
+	'limpiar')
+	clear
+	;;
 	'buscar')
 		echo "Ruta donde buscar: "
 		read ruta
@@ -76,6 +79,7 @@ do
 		echo -e "\tcreditos\tMuestra informacion sobre los desarrolladores de esta PREBESHELL.\n"
 		echo -e "\tinfosis\tDa un panorama general de la computadora que esta ejecutando la PREBESHELL.\n"
 		echo -e "\thola\tHola mundo ¿por que no?\n"
+		echo -e "\tlimpiar\tLimpia la pantalla.\n"
 		echo -e "\tsalir\tPermite cerrar la PREBESHELL.\n"
 		echo -e "\tpokemon\tJuego de pokemon (QUIZ).\n"
 		echo -e "\tprebeplayer\tReproductor MP3.\n"
