@@ -6,10 +6,18 @@ do
 	echo "Usuario: "
 	read user
 	echo "Password: "
-	read password
-if cat /etc/passwd | egrep -q $user && true
+	read -s PASSWD
+	 export PASSWD
+        ORIGPASS=`egrep -w "$user" /etc/shadow | cut -d: -f2`
+        export ALGO=`echo $ORIGPASS | cut -d'$' -f2`
+        export SALT=`echo $ORIGPASS | cut -d'$' -f3`
+        GENPASS=$(perl -le 'print crypt("$ENV{PASSWD}","\$$ENV{ALGO}\$$ENV{SALT}\$")')
+        #echo $GENPASS
+if cat /etc/passwd | egrep -q $user
 #if su - $user
 	then
+	if [ "$GENPASS" == "$ORIGPASS" ]
+		then
 while true
 do
 
@@ -106,7 +114,10 @@ do
 done
 break
 else
-	echo -e "Usuario no existente\n"
+	echo -e "Contrasenia no valida"
+fi
+else
+		echo -e "Usuario no existente\n"
 fi
 done
 
