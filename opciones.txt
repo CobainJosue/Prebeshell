@@ -10,27 +10,27 @@ Brasil
 Bulgaria
 Camerun
 Colombia
-Corea del Norte
-Corea del Sur
-Costa de Marfil
-Costa Rica
-Emiratos Árabes Unidos
+CoreadelNorte
+CoreadelSur
+CostadeMarfil
+CostaRica
+EmiratosArabesUnidos
 Eslovaquia
 Eslovenia
 España
-Estados Unidos
+EstadosUnidos
 Guatemala
 Honduras
 Islandia
-Islas Caimán
+IslasCaiman
 Jordania
 Mexico
 Nicaragua
-Nueva Zelanda
+NuevaZelanda
 Portugal
-Republica Dominicana
+RepublicaDominicana
 Sudafrica
-Trinidad y Tobago
+TrinidadyTobago
 Uruguay
 Venezuela
 armario
