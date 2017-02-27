@@ -19,18 +19,18 @@ echo -e "\t\t\t\tJUEGO DEL AHORCADO.";
 		\tque creas pueden estar contenidas en la misma, si\n
 		\ttu letra está en la palabra, \n
 		\testa sustituirá el guión correspondiente\n
-		\ta su posición con lo cual estaras mas\n
+		\ta su posición con lo cual estarás mas\n
 		\tcerca de adivinar la palarba mientras que en el caso\n
 		\tcontrario perderás una vida.\n\n";
 
 # Se generará un número aleatorio y se guarda en numero
-numero=(($RANDOM%150));
+numero=$(($RANDOM%150));
 i=1; #inicia contador para recorrer el archivo
 
-archivo_pal= cat ./opciones.txt;
-archivo_pistas= cat ./pistas.txt;
+#archivo_pal= cat ./opciones.txt;
+#archivo_pistas= cat ./pistas.txt;
 
-for find in archivo_pal 
+for find in $(<opciones.txt) 
 do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 
 	if [ $i -eq $numero ];
@@ -40,12 +40,8 @@ do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 	let i=$i+1;
 done
 
-<<<<<<< HEAD
-for find in archivo_pistas 
-do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
-=======
-for find in archivo_pistas do  #ciclo para encontrar la pista que corresponde al numero aleatorio
->>>>>>> c767a612c42b9ea4c0d306787e171d749261c1d2
+for find in $(<pistas.txt)  #ciclo para encontrar la palabra que corresponde al numero aleatorio
+do  
 
 	if [ $i -eq $numero ]; then
 		pista=$find; #aqui asigna la palabra del archivo a la variable pista
@@ -69,7 +65,7 @@ lets_restantes=$longitud;
 while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 	
 	echo -e "\t\tAdivine la siguiente palabra\n";
-	echo -e "Pista: $pista"; 
+	echo -e "\nPista: $pista"; 
 	
 	let indice=8-$vidas;
 	
@@ -111,15 +107,9 @@ done
 clear;
 
 if [ $lets_restantes -eq 0 ]; then
-<<<<<<< HEAD
-	echo -e "\t\t\t`/ft.sh -f -r `\t\tCorrecto, es:"$palabra"
-	\t\t\tLa victoria es toda tuya";
+	echo -e "\t\t\t\t\tExcelente, la palabra es: $palabra";
+	echo -e "\t\t\tHas ganado.";
 	cat ./figura0.txt;
-=======
-	echo "\t\t\t"$("\t\tExcelente, la palabra es:"$palabra";
-	\t\t\tHas ganado.";
-	cat figura0.txt;
->>>>>>> c767a612c42b9ea4c0d306787e171d749261c1d2
 else
 	echo -e "Suerte para la próxima, la palabra era \t\t\t\t$palabra";
 	cat ./figura7.txt;
