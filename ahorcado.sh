@@ -4,24 +4,22 @@
 # Figuras del ahorcado obtenidas de la página:
 # https://programaresdivertido.wordpress.com/2014/08/29/programando-un-ahorcado-en-consola-con-java-nivel-medio/
 
-echo -e "\t\t\t\tJUEGO DEL AHORCADO.";
+echo -e "\t\t\t\t\nJUEGO DEL AHORCADO.";
 
 # Instrucciones del juego
 
-		echo -e "\t\t\tInstrucciones:"
-		echo -e "\tBienvenido al juego.\n
-		\tEl juego consiste en adivinar letra por letra una\n
-		\tpalabra, la cual no contendrá ni \n
-		\tni acentos ni caracteres especiales (a excepcion de\n
-		\tMayusculas)\n\n
+		echo -e "\n\t\tInstrucciones:"
+		echo -e "\t\t\t
+		\tEl juego consiste en adivinar letra por letra una
+		\tpalabra, la cual no contendrá ni caracteres 
+		\tespeciales ni acentos (a excepción de Mayúsculas).\n
 		\tPrimero te aparecerán guiones que indicarán la longitud 
-        \tde la palabra que se busca, posteriormente eligiras letras
-		\tque creas pueden estar contenidas en la misma, si\n
-		\ttu letra está en la palabra, \n
-		\testa sustituirá el guión correspondiente\n
-		\ta su posición con lo cual estarás mas\n
-		\tcerca de adivinar la palarba mientras que en el caso\n
-		\tcontrario perderás una vida.\n\n";
+        \t\tde la palabra que se busca, posteriormente elegirás
+		\tletras que creas pueden estar contenidas en la misma,
+		\tsi tu letra está en la palabra, esta sustituirá
+		\tel guión correspondiente a su posición con lo cual
+		\testarás más cerca de adivinar la palabra mientras 
+		\tque en el caso contrario perderás una vida.\n\n";
 
 # Se generará un número aleatorio y se guarda en numero
 numero=$(($RANDOM%150));
@@ -40,14 +38,17 @@ do  #ciclo para encontrar la palabra que corresponde al numero aleatorio
 	let i=$i+1;
 done
 
-for find in $(<pistas.txt)  #ciclo para encontrar la palabra que corresponde al numero aleatorio
-do  
+i=1;
 
+while read line 
+do  
 	if [ $i -eq $numero ]; then
-		pista=$find; #aqui asigna la palabra del archivo a la variable pista
+		pista=$line; #aqui asigna la cadena del archivo a la variable pista
 	fi
 	let i=$i+1;
-done
+done <pistas.txt
+
+#echo $find;
 
 longitud=${#palabra}; #regresa la longitud de la palabra
 
@@ -65,7 +66,8 @@ lets_restantes=$longitud;
 while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 	
 	echo -e "\t\tAdivine la siguiente palabra\n";
-	echo -e "\nPista: $pista"; 
+	echo -e "\nPista: $pista";
+	echo -e "\nVidas: $vidas\n";
 	
 	let indice=8-$vidas;
 	
@@ -80,7 +82,7 @@ while [ $vidas -gt 0 ] && [ $lets_restantes -ne 0 ]; do
 	done
 	
 	
-	echo -n " Ingrese un caracter:";
+	echo -n "Ingrese un caracter:";
 	read -n 1 c;
 	
 	n_acierto=0;
@@ -107,11 +109,13 @@ done
 clear;
 
 if [ $lets_restantes -eq 0 ]; then
-	echo -e "\t\t\t\t\tExcelente, la palabra es: $palabra";
+	echo -e "\t\t\t\t\tExcelente, la palabra es: $palabra\n";
 	echo -e "\t\t\tHas ganado.";
 	cat ./figura0.txt;
+	echo -e "\n";
 else
-	echo -e "Suerte para la próxima, la palabra era \t\t\t\t$palabra";
-	cat ./figura7.txt;
+	echo -e "Suerte para la próxima, la palabra era:\t$palabra\n";
+	cat ./figura8.txt;
+	echo -e "\n";
 fi
 exit
